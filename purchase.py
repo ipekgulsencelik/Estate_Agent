@@ -33,3 +33,13 @@ class ApartmentPurchase(Apartment, Purchase):
         return init
     
     prompt_init = staticmethod(prompt_init)
+
+
+class HousePurchase(House, Purchase):
+    def prompt_init():
+        init = House.prompt_init()
+        init.update(Purchase.prompt_init())
+
+        return init
+    
+    prompt_init = staticmethod(prompt_init)
