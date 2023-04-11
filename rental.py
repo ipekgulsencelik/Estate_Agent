@@ -27,10 +27,20 @@ class Rental(Property):
 
 
 from apartment import Apartment
-
 class ApartmentRental(Apartment, Rental):
     def prompt_init():
         init = Apartment.prompt_init()
+        init.update(Rental.prompt_init())
+
+        return init
+    
+    prompt_init = staticmethod(prompt_init)
+
+
+from house import House
+class HouseRental(House, Rental):
+    def prompt_init():
+        init = House.prompt_init()
         init.update(Rental.prompt_init())
 
         return init
